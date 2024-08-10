@@ -1,0 +1,45 @@
+.coverImg {
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/diecast-836ee.appspot.com/o/I%20have%20diecast%20%20b559f2f8-3f67-4582-b2e6-110785a6e52d.png?alt=media&token=eaa19a7c-c65e-41fd-b3b6-c2b649459373");
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: -1 !important;
+  margin-top: -5.6rem;
+}
+
+.navbar {
+  position: relative;
+}
+
+.btn,
+.btn:active,
+.btn:visited {
+  margin-top: 44vh;
+  margin-left: 44vw;
+  padding: 1.2rem;
+  font-size: 2.4rem;
+  border-radius: 2.4rem;
+  border: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  background: linear-gradient(to right bottom, #fae8dc, #fc6202);
+  box-shadow: 0 0px 2.4rem 0.3rem #fc6202;
+}
+
+.btn:hover {
+  background: linear-gradient(to right bottom, #fc6202, #fae8dc);
+  box-shadow: 0 0px 4.8rem 1.2rem #fc6202;
+  transition: all 0.5s;
+}
+
+.login {
+  position: relative;
+  top: 20%;
+  left: 38%;
+  width: 12rem;
+  height: 12rem;
+  background-color: blue;
+}

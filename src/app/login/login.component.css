@@ -1,0 +1,92 @@
+.login_form,
+.register_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: linear-gradient(to right bottom, #f4d6c3, #f18039);
+  padding: 1.8rem;
+  width: 36rem;
+  border-radius: 2.4rem;
+  color: #522002;
+}
+
+.heading {
+  text-align: center;
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+.lab_inp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.label {
+  display: inline-block;
+  text-align: center;
+  font-weight: 500;
+}
+
+.alert {
+  color: red;
+  margin-top: -0.9rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 30rem;
+  height: 3.6rem;
+  margin-bottom: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 0.6rem;
+  padding-left: 0.6rem;
+  margin-top: -0.3rem;
+}
+
+button {
+  width: 24rem;
+  padding: 0.5em;
+  background-color: #007bff;
+  border: none;
+  border-radius: 0.9rem;
+  color: white;
+}
+
+button:disabled {
+  background-color: #cccccc;
+}
+
+.register {
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.register_form {
+  margin-top: -5.4rem;
+}
+
+.alert,
+.error {
+  font-size: 1.2rem;
+  color: red;
+}
+
+.loading {
+  margin: 0 !important;
+}
+
+.registered {
+  font-size: 1.8rem;
+  color: white;
+  font-weight: 500;
+  padding-left: 0.3rem;
+}

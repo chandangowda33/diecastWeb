@@ -1,0 +1,102 @@
+<div class="navbar_div" [class.homeBackground]="isHome">
+  <img
+    class="logo"
+    src="https://firebasestorage.googleapis.com/v0/b/diecast-836ee.appspot.com/o/MINIMOTORS%20India%20(1).png?alt=media&token=736533da-401a-4c58-8ee2-a80780bb961d"
+  />
+
+  <div class="search_div">
+    <mat-icon class="search_icon">search</mat-icon>
+    <input type="text" class="search_input" placeholder="Search your car" />
+  </div>
+  <div class="navbar_list">
+    <a
+      class="list_item"
+      [class.active]="activeLink === 'home'"
+      (click)="setActiveLink('home')"
+      [routerLink]="['/home']"
+      >Home</a
+    >
+    <a
+      class="list_item"
+      [class.active]="activeLink === 'arrival'"
+      (click)="setActiveLink('arrival')"
+      >New arrivals</a
+    >
+    <a
+      class="list_item flex"
+      [class.active]="activeLink === 'category'"
+      (click)="setActiveLink('category')"
+      >Categories <mat-icon class="name_icon">keyboard_arrow_down</mat-icon></a
+    >
+
+    <a
+      class="list_item"
+      [class.active]="activeLink === 'login'"
+      (click)="setActiveLink('login')"
+      (click)="toggleLogin()"
+      *ngIf="!isloggedIn"
+      >Login/Register</a
+    >
+
+    <div
+      class="list_item size"
+      [class.active]="activeLink === 'profile'"
+      [class.border_fix]="isDropdown"
+      (click)="setActiveLink('profile')"
+      *ngIf="isloggedIn"
+    >
+      <div class="name_div" (click)="toggleDropdown()">
+        <span class="logo_name">{{ logo }}</span>
+        <p class="name">{{ name }}</p>
+        <mat-icon class="name_icon" *ngIf="!isDropdown"
+          >keyboard_arrow_down</mat-icon
+        >
+        <mat-icon class="name_icon" *ngIf="isDropdown"
+          >keyboard_arrow_up</mat-icon
+        >
+      </div>
+      <div class="dropdown_div" [ngClass]="{ show: isDropdown }">
+        <ul class="dropdown_list">
+          <li class="dropdown_list_item">
+            <mat-icon class="dropdown_icon">account_box</mat-icon> My Profile
+          </li>
+          <li class="dropdown_list_item">
+            <mat-icon class="dropdown_icon">subject</mat-icon> My Orders
+          </li>
+          <li class="dropdown_list_item" *ngIf="isSeller">
+            <mat-icon class="dropdown_icon">list_alt</mat-icon> My items
+          </li>
+          <li
+            class="dropdown_list_item"
+            *ngIf="isSeller"
+            (click)="uploadNewItem()"
+          >
+            <mat-icon class="dropdown_icon">cloud_upload</mat-icon> Sell New
+            Item
+          </li>
+          <li class="dropdown_list_item">
+            <mat-icon class="dropdown_icon">shopping_cart</mat-icon> My Cart
+          </li>
+          <li class="dropdown_list_item" (click)="logout()">
+            <mat-icon class="dropdown_icon">remove_from_queue</mat-icon> Log out
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="social_media_logo">
+      <button class="social_media_btn">
+        <img
+          class="logo_social"
+          src="https://firebasestorage.googleapis.com/v0/b/diecast-836ee.appspot.com/o/instagram.svg?alt=media&token=b8cae63f-84ce-41bf-9150-527075a3f55c"
+        />
+      </button>
+      <a class="social_media_btn">
+        <img
+          class="logo_social"
+          src="https://firebasestorage.googleapis.com/v0/b/diecast-836ee.appspot.com/o/whatsapp.svg?alt=media&token=95d966c1-b4d4-4b29-992e-17934789b27a"
+        />
+      </a>
+    </div>
+  </div>
+</div>

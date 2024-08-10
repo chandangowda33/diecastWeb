@@ -1,0 +1,159 @@
+<div *ngIf="!toRegister && toLogin" class="login_form">
+  <h3 class="heading">Login</h3>
+  <h6 class="registered" *ngIf="isRegistered">{{ registerMsg }}</h6>
+  <form [formGroup]="loginForm" class="form" (ngSubmit)="login()">
+    <div class="lab_inp">
+      <label for="phonenumber" class="label">Phone Number</label>
+      <input
+        id="phonenumber"
+        formControlName="phonenumber"
+        type="text"
+        placeholder="Enter your phone number"
+      />
+      <div
+        *ngIf="
+          loginForm.get('phonenumber')?.invalid &&
+          loginForm.get('phonenumber')?.touched
+        "
+        class="alert"
+      >
+        Phone number is required.
+      </div>
+    </div>
+    <div class="lab_inp">
+      <label class="label" for="password">Password</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        placeholder="Enter your Password"
+      />
+      <div
+        *ngIf="
+          loginForm.get('password')?.invalid &&
+          loginForm.get('password')?.touched
+        "
+        class="alert"
+      >
+        Password is required.
+      </div>
+    </div>
+    <p class="error" *ngIf="isError">{{ errorMessage }}</p>
+    <button type="submit" *ngIf="!isLoading" [disabled]="loginForm.invalid">
+      Login
+    </button>
+    <app-loading *ngIf="isLoading" class="loading"></app-loading>
+  </form>
+  <a (click)="registerNow()" class="register" *ngIf="!isLoading"> Sign Up</a>
+</div>
+
+<div *ngIf="toRegister && !toLogin" class="register_form">
+  <h3 class="heading">Register</h3>
+  <form [formGroup]="registerForm" class="form" (ngSubmit)="register()">
+    <div class="lab_inp">
+      <label for="phoneNumber" class="label">Phone Number</label>
+      <input
+        id="phoneNumber"
+        formControlName="phoneNumber"
+        type="text"
+        placeholder="Enter your phone number"
+      />
+      <div
+        *ngIf="
+          registerForm.get('phoneNumber')?.invalid &&
+          registerForm.get('phoneNumber')?.touched
+        "
+        class="alert"
+      >
+        Phone Number is required.
+      </div>
+    </div>
+    <div class="lab_inp">
+      <label for="fullName" class="label">Full Name</label>
+      <input
+        id="fullName"
+        formControlName="fullName"
+        type="text"
+        placeholder="Enter your Full Name"
+      />
+      <div
+        *ngIf="
+          registerForm.get('fullName')?.invalid &&
+          registerForm.get('fullName')?.touched
+        "
+        class="alert"
+      >
+        Full name is required.
+      </div>
+    </div>
+    <div class="lab_inp">
+      <label for="password" class="label">Password</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        placeholder="Enter your Password"
+      />
+      <div
+        *ngIf="
+          registerForm.get('password')?.invalid &&
+          registerForm.get('password')?.touched
+        "
+        class="alert"
+      >
+        Password is required.
+      </div>
+      <div
+        class="alert"
+        *ngIf="registerForm.get('password')?.errors?.['minlength']"
+      >
+        Password must be at least 8 characters long.
+      </div>
+    </div>
+    <div class="lab_inp">
+      <label class="label" for="confirmPassword">Confirm Password</label>
+      <input
+        id="confirmPassword"
+        formControlName="confirmPassword"
+        type="password"
+        placeholder="Enter your Password again"
+      />
+      <div
+        *ngIf="
+          registerForm.get('confirmPassword')?.invalid &&
+          registerForm.get('confirmPassword')?.touched
+        "
+        class="alert"
+      >
+        Enter password again
+      </div>
+      <div
+        *ngIf="
+          registerForm.get('confirmPassword')?.touched &&
+          registerForm.get('confirmPassword')?.value !==
+            registerForm.get('password')?.value
+        "
+        class="alert"
+      >
+        Passwords not matching, please check
+      </div>
+    </div>
+    <p class="error" *ngIf="isErrorReg">{{ errorMessage }}</p>
+    <app-loading *ngIf="isLoading" class="loading"></app-loading>
+
+    <button
+      type="submit"
+      *ngIf="!isLoading"
+      [disabled]="
+        registerForm.invalid ||
+        registerForm.get('confirmPassword')?.value !==
+          registerForm.get('password')?.value
+      "
+    >
+      Login
+    </button>
+  </form>
+  <a (click)="registerNow()" class="register" *ngIf="!isLoading">
+    Already register? Login</a
+  >
+</div>

@@ -1,0 +1,7 @@
+<div class="coverImg">
+  <button class="btn" *ngIf="!login && !register">
+    Get my Car<mat-icon> directions_car</mat-icon>
+  </button>
+</div>
+
+<app-login class="login" *ngIf="login && !register"></app-login>
